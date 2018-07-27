@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Abc Playlist",
+  "version": "0.0.1",
+  "description": "This extension allows users to alphabetize their YouTube playlist",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "background",
+    "tabs",
+	"activeTab",
+	"storage",
+	"*://*.youtube.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["contentscript.js"],
+      "css": ["popup.css"]
+    }
+  ],
+  "background": {
+	  "scripts": ["background.js"],
+	  "persistent": false
+  },
+  "web_accessible_resources": ["popup.css"]
+}
